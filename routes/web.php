@@ -4,6 +4,7 @@ use App\Http\Controllers\Backend\Dashboard\DashboardController;
 use App\Http\Controllers\Frontend\Home\HomeController;
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,3 +21,4 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::prefix('admin')->as('admin.')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('home');
 });
+
