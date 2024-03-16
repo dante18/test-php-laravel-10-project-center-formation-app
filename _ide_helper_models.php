@@ -17,6 +17,30 @@ namespace App\Models{
  *
  * @property int $id
  * @property string $name
+ * @property string $value
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Database\Factories\ParameterFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder|Parameter newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Parameter newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Parameter query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Parameter whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Parameter whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Parameter whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Parameter whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Parameter whereValue($value)
+ * @mixin \Eloquent
+ */
+	#[\AllowDynamicProperties]
+	class IdeHelperParameter {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
+ * @property string $name
  * @property string $email
  * @property \Illuminate\Support\Carbon|null $email_verified_at
  * @property string $password
