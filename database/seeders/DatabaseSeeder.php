@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Course;
+use App\Models\Formation;
 use App\Models\Parameter;
 use Illuminate\Database\Seeder;
 
@@ -22,5 +24,9 @@ class DatabaseSeeder extends Seeder
             'name' => 'APP_HOME_HERO_SUB_TITLE',
             'value' => 'de manière rapide et qui vous correspond'
         ]);
+
+        Course::factory(20)->create();
+
+        Formation::factory(10)->create();
     }
 }
