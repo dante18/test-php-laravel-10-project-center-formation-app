@@ -55,7 +55,7 @@
             <div class="container">
                 <div class="row counters">
                     <div class="col-lg-4 col-6 text-center">
-                        <span data-purecounter-start="0" data-purecounter-end="1232" data-purecounter-duration="1"
+                        <span data-purecounter-start="0" data-purecounter-end="{{ $userRegistrationNumber  }}" data-purecounter-duration="1"
                               class="purecounter"></span>
                         <p>
                             Inscriptions
