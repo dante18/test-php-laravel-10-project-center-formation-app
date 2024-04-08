@@ -2,10 +2,11 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Course;
 use App\Models\Formation;
 use App\Models\Parameter;
+use App\Models\Profile;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -28,5 +29,16 @@ class DatabaseSeeder extends Seeder
         Course::factory(20)->create();
 
         Formation::factory(10)->create();
+
+        User::factory()
+            ->count(1000)
+            ->create()
+            ->each(function (User $user) {
+                Profile::factory()->create([
+                    'name' => 'CUSTOMER',
+                    'user_id' => $user->id,
+                ]);
+            })
+        ;
     }
 }
