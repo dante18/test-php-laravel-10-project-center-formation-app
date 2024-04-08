@@ -17,7 +17,7 @@ This project consists of creating a web application offering online courses for 
 3. Run `yarn install`
 4. Configure database connection
 5. Make the database and tables  
-```php artisan migrate```
+```php artisan migrate:fresh --seed```
 6. Generate files to help your IDE offer you better auto-completion
 ```
 php artisan clear-compiled
@@ -25,6 +25,8 @@ php artisan ide-helper:generate
 php artisan ide-helper:models -M
 php artisan ide-helper:meta
 ```
+7. Run `yarn run build`
+8. Run `yarn run dev`
 
 ### Working
 
