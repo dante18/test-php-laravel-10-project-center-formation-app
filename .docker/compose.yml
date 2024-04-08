@@ -1,0 +1,21 @@
+version: '3.7'
+
+name: 'test-php-laravel-app'
+
+services:
+  laravel-10-app-database:
+    container_name: 'laravel-10-app-database'
+    image: mysql:latest
+    env_file:
+      - .env
+    volumes:
+      - './volumes/database:/var/lib/mysql'
+    restart: always
+    tty: true
+    ports:
+      - '${MYSQL_PORT_MAPPING_DEV}:3306/tcp'
+
+  laravel-10-app-mailer:
+    image: schickling/mailcatcher
+    ports:
+      - '${MAILER_PORT_MAPPING_DEV}:1080/tcp'
