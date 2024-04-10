@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Category;
 use App\Models\Course;
 use App\Models\Formation;
 use App\Models\Parameter;
@@ -40,5 +41,7 @@ class DatabaseSeeder extends Seeder
                 ]);
             })
         ;
+
+        Category::factory(10)->create();
     }
 }
