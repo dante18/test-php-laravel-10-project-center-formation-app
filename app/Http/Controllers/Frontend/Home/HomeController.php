@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend\Home;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Course;
 use App\Models\Formation;
 use App\Models\Parameter;
@@ -25,6 +26,7 @@ class HomeController extends Controller
             'courseNumber' => $courseNumber,
             'formationNumber' => $formationNumber,
             'userRegistrationNumber' => $userRegistrationNumber,
+            'categories' => Category::select('*')->limit(10)->get(),
         ]);
     }
 }
