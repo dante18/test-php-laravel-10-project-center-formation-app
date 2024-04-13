@@ -18,6 +18,12 @@ class CourseFactory extends Factory
     {
         return [
             'name' => fake()->words(3, true),
+            'short_description' => fake()->words(20, true),
+            'description' => fake()->words(30, true),
+            'duration' => rand(30, 300),
+            'difficulty' => fake()->words(2, true),
+            'publication_date' => fake()->date('Y-m-d'),
+            'number_view' => rand(30, 300)
         ];
     }
 }
