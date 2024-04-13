@@ -23,7 +23,8 @@ class CourseFactory extends Factory
             'duration' => rand(30, 300),
             'difficulty' => fake()->words(2, true),
             'publication_date' => fake()->date('Y-m-d'),
-            'number_view' => rand(30, 300)
+            'number_view' => rand(30, 300),
+            'thumbnail' => 'course-1.jpg',
         ];
     }
 }

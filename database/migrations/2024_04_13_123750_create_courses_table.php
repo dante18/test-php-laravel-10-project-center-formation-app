@@ -21,6 +21,7 @@ return new class extends Migration
             $table->date('publication_date');
             $table->integer('number_view');
             $table->foreignId('category_id')->constrained();
+            $table->string('thumbnail');
             $table->timestamps();
         });
     }
