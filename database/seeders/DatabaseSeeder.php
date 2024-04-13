@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Category;
 use App\Models\Course;
 use App\Models\Formation;
 use App\Models\Parameter;
@@ -26,10 +27,6 @@ class DatabaseSeeder extends Seeder
             'value' => 'de manière rapide et qui vous correspond'
         ]);
 
-        Course::factory(20)->create();
-
-        Formation::factory(10)->create();
-
         User::factory()
             ->count(1000)
             ->create()
@@ -39,6 +36,18 @@ class DatabaseSeeder extends Seeder
                     'user_id' => $user->id,
                 ]);
             })
+        ;
+
+        Course::factory(5)
+            ->for(Category::factory()->create())
+            ->create()
+        ;
+
+        Formation::factory()
+            ->has(Course::factory()->for(Category::factory()))
+            ->for(Category::factory()->create())
+            ->count(10)
+            ->create()
         ;
     }
 }

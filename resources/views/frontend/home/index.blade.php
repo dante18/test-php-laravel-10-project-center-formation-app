@@ -55,21 +55,24 @@
             <div class="container">
                 <div class="row counters">
                     <div class="col-lg-4 col-6 text-center">
-                        <span data-purecounter-start="0" data-purecounter-end="{{ $userRegistrationNumber  }}" data-purecounter-duration="1"
+                        <span data-purecounter-start="0" data-purecounter-end="{{ $userRegistrationNumber  }}"
+                              data-purecounter-duration="1"
                               class="purecounter"></span>
                         <p>
                             Inscriptions
                         </p>
                     </div>
                     <div class="col-lg-4 col-6 text-center">
-                        <span data-purecounter-start="0" data-purecounter-end="{{ $courseNumber }}" data-purecounter-duration="1"
+                        <span data-purecounter-start="0" data-purecounter-end="{{ $courseNumber }}"
+                              data-purecounter-duration="1"
                               class="purecounter"></span>
                         <p>
                             Cours
                         </p>
                     </div>
                     <div class="col-lg-4 col-6 text-center">
-                        <span data-purecounter-start="0" data-purecounter-end="{{ $formationNumber }}" data-purecounter-duration="1"
+                        <span data-purecounter-start="0" data-purecounter-end="{{ $formationNumber }}"
+                              data-purecounter-duration="1"
                               class="purecounter"></span>
                         <p>
                             Formation
@@ -78,5 +81,98 @@
                 </div>
             </div>
         </section><!-- End Counts Section -->
+
+        <!-- ======= Features Section ======= -->
+        <section id="features" class="features pt-5">
+            <div class="container" data-aos="fade-up">
+                <div class="section-title">
+                    <h2>
+                        Grace un large choix
+                    </h2>
+                    <p>
+                        de cours et de formation couvrant une multitude de domain
+                    </p>
+                </div>
+                <div class="row" data-aos="zoom-in" data-aos-delay="100">
+                    @foreach ($categories as $categorie)
+                        <div class="col-lg-3 col-md-4 mt-4">
+                            <div class="icon-box">
+                                <i class="{{ $categorie->icon }}" style="color: #ffbb2c;"></i>
+                                <h3>
+                                    <a href="">
+                                        {{ $categorie->name }}
+                                    </a>
+                                </h3>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+
+            </div>
+        </section><!-- End Features Section -->
+
+        <!-- ======= Popular Courses Section ======= -->
+        <section id="popular-courses" class="courses">
+            <div class="container" data-aos="fade-up">
+                <div class="section-title">
+                    <h2>
+                        Ainsi qu'un large choix de cours et de formation
+                    </h2>
+                    <p>
+                        populaire aupres d'un grand nombre d'etudiants passé et présent
+                    </p>
+                </div>
+                <div class="row" data-aos="zoom-in" data-aos-delay="100">
+                    @foreach($heightLightedCourses as $course)
+                        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+                            <div class="course-item">
+                                <img src="{{ Vite::asset('resources/assets/frontend/img/' . $course->thumbnail) }}"
+                                     class="img-fluid"
+                                     alt="...">
+                                <div class="course-content">
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <h4>
+                                            {{ $course->category?->name }}
+                                        </h4>
+                                    </div>
+                                    <h3>
+                                        <a href="#">
+                                            {{ $course->name }}
+                                        </a>
+                                    </h3>
+                                    <p>
+                                        {{ $course->short_description }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div> <!-- End Course Item-->
+                    @endforeach
+                    @foreach($heightLightedFormations as $formation)
+                        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+                            <div class="course-item">
+                                <img src="{{ Vite::asset('resources/assets/frontend/img/' . $formation->thumbnail) }}"
+                                     class="img-fluid"
+                                     alt="...">
+                                <div class="course-content">
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <h4>
+                                            {{ $formation->category?->name }}
+                                        </h4>
+                                    </div>
+                                    <h3>
+                                        <a href="#">
+                                            {{ $formation->name }}
+                                        </a>
+                                    </h3>
+                                    <p>
+                                        {{ $formation->short_description }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div> <!-- End Course Item-->
+                    @endforeach
+                </div>
+            </div>
+        </section><!-- End Popular Courses Section -->
     </main><!-- End #main -->
 @endsection
