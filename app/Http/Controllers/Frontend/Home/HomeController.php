@@ -9,6 +9,7 @@ use App\Models\Formation;
 use App\Models\Parameter;
 use App\Models\Profile;
 use Illuminate\View\View;
+use PhpParser\Builder;
 
 class HomeController extends Controller
 {
@@ -19,6 +20,15 @@ class HomeController extends Controller
         $courseNumber = Course::query()->count();
         $formationNumber = Formation::query()->count();
         $userRegistrationNumber = Profile::where('name', '=', 'CUSTOMER')->count();
+        $heightLightedCourses = Course::with('category')->where('number_view', '>', 200)
+            ->limit(3)
+            ->get()
+        ;
+
+        $heightLightedFormations = Formation::with('category')->where('number_view', '>', 200)
+            ->limit(3)
+            ->get()
+        ;
 
         return view('frontend.home.index', [
             'heroTitle' => $heroTitle,
@@ -27,6 +37,8 @@ class HomeController extends Controller
             'formationNumber' => $formationNumber,
             'userRegistrationNumber' => $userRegistrationNumber,
             'categories' => Category::select('*')->limit(10)->get(),
+            'heightLightedCourses' => $heightLightedCourses,
+            'heightLightedFormations' => $heightLightedFormations
         ]);
     }
 }

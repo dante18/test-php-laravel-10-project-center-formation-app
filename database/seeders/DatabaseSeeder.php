@@ -27,10 +27,6 @@ class DatabaseSeeder extends Seeder
             'value' => 'de manière rapide et qui vous correspond'
         ]);
 
-        Course::factory(20)->create();
-
-        Formation::factory(10)->create();
-
         User::factory()
             ->count(1000)
             ->create()
@@ -42,6 +38,16 @@ class DatabaseSeeder extends Seeder
             })
         ;
 
-        Category::factory(10)->create();
+        Course::factory(5)
+            ->for(Category::factory()->create())
+            ->create()
+        ;
+
+        Formation::factory()
+            ->has(Course::factory()->for(Category::factory()))
+            ->for(Category::factory()->create())
+            ->count(10)
+            ->create()
+        ;
     }
 }
