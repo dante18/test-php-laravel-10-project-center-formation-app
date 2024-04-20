@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend\Home;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Course;
 use App\Models\Formation;
 use App\Models\Parameter;
@@ -24,11 +25,11 @@ class HomeController extends Controller
             ->limit(3)
             ->get()
         ;
-
         $heightLightedFormations = Formation::with('category')->where('number_view', '>', 200)
             ->limit(3)
             ->get()
         ;
+        $lastTestimonials = Comment::with('user')->limit(3)->orderByDesc('created_at')->get();
 
         return view('frontend.home.index', [
             'heroTitle' => $heroTitle,
@@ -38,7 +39,8 @@ class HomeController extends Controller
             'userRegistrationNumber' => $userRegistrationNumber,
             'categories' => Category::select('*')->limit(10)->get(),
             'heightLightedCourses' => $heightLightedCourses,
-            'heightLightedFormations' => $heightLightedFormations
+            'heightLightedFormations' => $heightLightedFormations,
+            'lastTestimonials' => $lastTestimonials
         ]);
     }
 }
