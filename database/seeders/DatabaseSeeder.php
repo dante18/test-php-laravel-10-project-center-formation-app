@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Course;
 use App\Models\Formation;
 use App\Models\Parameter;
@@ -24,7 +25,7 @@ class DatabaseSeeder extends Seeder
 
         Parameter::factory(1)->create([
             'name' => 'APP_HOME_HERO_SUB_TITLE',
-            'value' => 'de manière rapide et qui vous correspond'
+            'value' => 'de manière rapide et qui vous correspondent'
         ]);
 
         User::factory()
@@ -48,6 +49,16 @@ class DatabaseSeeder extends Seeder
             ->for(Category::factory()->create())
             ->count(10)
             ->create()
+        ;
+
+        User::factory()
+            ->count(10)
+            ->create()
+            ->each(function (User $user) {
+                Comment::factory()->create([
+                    'user_id' => $user->id,
+                ]);
+            })
         ;
     }
 }
