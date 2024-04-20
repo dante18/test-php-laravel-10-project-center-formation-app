@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Laravel</title>
+    <title>Academic</title>
 
     <!-- Favicons -->
     <link href="{{ Vite::asset('resources/assets/frontend/img/favicon.png') }}" rel="icon">
@@ -28,39 +28,39 @@
 <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center justify-content-around">
         <h1 class="logo me-auto">
-            <a href="index.html">Academic</a>
+            <a href="{{ route('home') }}">Academic</a>
         </h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
         <nav id="navbar" class="navbar order-last order-lg-0">
             <ul>
                 <li>
-                    <a class="active" href="index.html">
+                    <a class="active" href="{{ route('home') }}">
                         Accueill
                     </a>
                 </li>
                 <li>
-                    <a href="pages/courses.html">
+                    <a href="#">
                         Nos cours
                     </a>
                 </li>
                 <li>
-                    <a href="pages/formations.html">
+                    <a href="#">
                         Nos formation
                     </a>
                 </li>
                 <li>
-                    <a href="pages/contact.html">
+                    <a href="#">
                         Nous contacter
                     </a>
                 </li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
-        <a href="pages/register.html" class="get-started-btn">
+        <a href="#" class="get-started-btn">
             S'inscrire
         </a>
-        <a href="pages/login.html" class="get-started-btn">
+        <a href="#" class="get-started-btn">
             Se connecter
         </a>
     </div>

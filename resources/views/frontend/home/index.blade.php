@@ -31,18 +31,16 @@
                         <ul>
                             <li class="pt-3">
                                 <i class="bi bi-check-circle"></i>
-                                de vous perfectionner ou vous remetre a niveau dans le domaine de votre choix (nouvelle
-                                technologie,
-                                communication, bureautique, ...)
+                                de vous perfectionner ou vous remetre à niveau dans le domaine de votre choix (nouvelles
+                                technologies, communication, bureautique, ...)
                             </li>
                             <li class="pt-3">
                                 <i class="bi bi-check-circle"></i>
-                                d'apprendre de nouvelle competence dans un nouveau domaine d'activite a votre rythme et
-                                sans
-                                contrainte
+                                d'apprendre de nouvelles compétences dans un nouveau domaine d'activité à votre rythme et
+                                sans contrainte
                             <li class="pt-3">
                                 <i class="bi bi-check-circle"></i>
-                                de vous reconvertir dans un nouveau metier qui vous tient a coeur ou qui vous passionne
+                                de vous reconvertir dans un nouveau métier qui vous tient à coeur ou qui vous passionne
                             </li>
                         </ul>
                     </div>
@@ -75,7 +73,7 @@
                               data-purecounter-duration="1"
                               class="purecounter"></span>
                         <p>
-                            Formation
+                            Formations
                         </p>
                     </div>
                 </div>
@@ -99,7 +97,7 @@
                             <div class="icon-box">
                                 <i class="{{ $categorie->icon }}" style="color: #ffbb2c;"></i>
                                 <h3>
-                                    <a href="">
+                                    <a href="#">
                                         {{ $categorie->name }}
                                     </a>
                                 </h3>
@@ -116,10 +114,10 @@
             <div class="container" data-aos="fade-up">
                 <div class="section-title">
                     <h2>
-                        Ainsi qu'un large choix de cours et de formation
+                        Ainsi qu'un large choix de cours et de formations
                     </h2>
                     <p>
-                        populaire aupres d'un grand nombre d'etudiants passé et présent
+                        populaire auprès d'un grand nombre d'etudiants anciens et nouveaux
                     </p>
                 </div>
                 <div class="row" data-aos="zoom-in" data-aos-delay="100">
@@ -174,5 +172,39 @@
                 </div>
             </div>
         </section><!-- End Popular Courses Section -->
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="testimonials section">
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Comme le</h2>
+                <p class="">prouve les nombreux témoignages de nos étudiants</p>
+            </div><!-- End Section Title -->
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                        @foreach($lastTestimonials as $testimonial)
+                        <div class="swiper-slide">
+                            <div class="testimonial-wrap">
+                                <div class="testimonial-item">
+                                    <img
+                                        src="{{ Vite::asset('resources/assets/frontend/img/testimonials/testimonials-1.jpg') }}"
+                                        class="testimonial-img" alt="">
+                                    <h3>{{ $testimonial->user?->name }}</h3>
+                                    <p>
+                                        <i class="bi bi-quote quote-icon-left"></i>
+                                        <span>{{ $testimonial->content }}</span>
+                                        <i class="bi bi-quote quote-icon-right"></i>
+                                    </p>
+                                </div>
+                            </div>
+                        </div><!-- End testimonial item -->
+                        @endforeach
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+
+        </section><!-- /Testimonials Section -->
     </main><!-- End #main -->
 @endsection

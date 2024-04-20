@@ -1,7 +1,7 @@
 import '../css/app.css'
 
 import PureCounter from "@srexi/purecounterjs";
-import Swiper from 'swiper';
+import Swiper, { Navigation, Pagination, Autoplay } from 'swiper';
 import AOS from 'aos';
 
 (function () {
@@ -86,35 +86,6 @@ import AOS from 'aos';
     }
 
     /**
-     * Testimonials slider
-     */
-    new Swiper('.testimonials-slider', {
-        speed: 600,
-        loop: true,
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false
-        },
-        slidesPerView: 'auto',
-        pagination: {
-            el: '.swiper-pagination',
-            type: 'bullets',
-            clickable: true
-        },
-        breakpoints: {
-            320: {
-                slidesPerView: 1,
-                spaceBetween: 20
-            },
-
-            1200: {
-                slidesPerView: 2,
-                spaceBetween: 20
-            }
-        }
-    });
-
-    /**
      * Animation on scroll
      */
     window.addEventListener('load', () => {
@@ -131,4 +102,38 @@ import AOS from 'aos';
      */
     new PureCounter();
 
+    /**
+     * Init swiper sliders
+     */
+    function initSwiper() {
+        Swiper.use([Navigation, Pagination, Autoplay]);
+
+        new Swiper('.swiper', {
+            speed: 600,
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false
+            },
+            slidesPerView: 'auto',
+            pagination: {
+                el: '.swiper-pagination',
+                type: 'bullets',
+                clickable: true
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 20
+                },
+
+                1200: {
+                    slidesPerView: 2,
+                    spaceBetween: 20
+                }
+            }
+        });
+    }
+
+    window.addEventListener('load', initSwiper);
 })()
