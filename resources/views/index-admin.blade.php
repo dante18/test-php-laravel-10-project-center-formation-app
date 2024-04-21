@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Laravel</title>
+    <title>Academic</title>
 
     <!-- Favicons -->
     <link href="{{ Vite::asset('resources/assets/frontend/img/favicon.png') }}" rel="icon">
@@ -21,9 +21,9 @@
 <!-- ======= Header ======= -->
 <header id="header" class="header fixed-top d-flex align-items-center">
     <div class="d-flex align-items-center justify-content-between">
-        <a href="index.html" class="logo d-flex align-items-center">
+        <a href="{{ route('admin.home') }}" class="logo d-flex align-items-center">
             <img src="{{ Vite::asset('resources/assets/backend/img/logo.png') }}" alt="">
-            <span class="d-none d-lg-block">NiceAdmin</span>
+            <span class="d-none d-lg-block">Academic</span>
         </a>
         <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
@@ -223,9 +223,9 @@
 <aside id="sidebar" class="sidebar">
     <ul class="sidebar-nav" id="sidebar-nav">
         <li class="nav-item">
-            <a class="nav-link " href="pages-blank.html">
-                <i class="bi bi-file-earmark"></i>
-                <span>Blank</span>
+            <a class="nav-link " href="{{ route('admin.home') }}">
+                <i class="bi bi-grid"></i>
+                <span>Tableau de bord</span>
             </a>
         </li><!-- End Blank Page Nav -->
     </ul>

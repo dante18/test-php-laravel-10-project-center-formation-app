@@ -14,7 +14,7 @@ import tinymce from 'tinymce';
  * Author: BootstrapMade.com
  * License: https://bootstrapmade.com/license/
  */
-(function() {
+(function () {
     "use strict";
 
     /**
@@ -51,7 +51,7 @@ import tinymce from 'tinymce';
      * Sidebar toggle
      */
     if (select('.toggle-sidebar-btn')) {
-        on('click', '.toggle-sidebar-btn', function(e) {
+        on('click', '.toggle-sidebar-btn', function (e) {
             select('body').classList.toggle('toggle-sidebar')
         })
     }
@@ -60,7 +60,7 @@ import tinymce from 'tinymce';
      * Search bar toggle
      */
     if (select('.search-bar-toggle')) {
-        on('click', '.search-bar-toggle', function(e) {
+        on('click', '.search-bar-toggle', function (e) {
             select('.search-bar').classList.toggle('search-bar-show')
         })
     }
@@ -121,7 +121,7 @@ import tinymce from 'tinymce';
      * Initiate tooltips
      */
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-    var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
         return new bootstrap.Tooltip(tooltipTriggerEl)
     })
 
@@ -294,8 +294,8 @@ import tinymce from 'tinymce';
     var needsValidation = document.querySelectorAll('.needs-validation')
 
     Array.prototype.slice.call(needsValidation)
-        .forEach(function(form) {
-            form.addEventListener('submit', function(event) {
+        .forEach(function (form) {
+            form.addEventListener('submit', function (event) {
                 if (!form.checkValidity()) {
                     event.preventDefault()
                     event.stopPropagation()
@@ -335,7 +335,7 @@ import tinymce from 'tinymce';
     const mainContainer = select('#main');
     if (mainContainer) {
         setTimeout(() => {
-            new ResizeObserver(function() {
+            new ResizeObserver(function () {
                 select('.echart', true).forEach(getEchart => {
                     echarts.getInstanceByDom(getEchart).resize();
                 })
@@ -343,4 +343,57 @@ import tinymce from 'tinymce';
         }, 200);
     }
 
+    if (document.querySelector('#reportsChart').length) {
+        document.addEventListener("DOMContentLoaded", () => {
+            const chart = new ApexCharts(document.querySelector("#reportsChart"), {
+                series: [{
+                    name: 'Sales',
+                    data: [31, 40, 28, 51, 42, 82, 56],
+                }, {
+                    name: 'Revenue',
+                    data: [11, 32, 45, 32, 34, 52, 41]
+                }, {
+                    name: 'Customers',
+                    data: [15, 11, 32, 18, 9, 24, 11]
+                }],
+                chart: {
+                    height: 350,
+                    type: 'area',
+                    toolbar: {
+                        show: false
+                    },
+                },
+                markers: {
+                    size: 4
+                },
+                colors: ['#4154f1', '#2eca6a', '#ff771d'],
+                fill: {
+                    type: "gradient",
+                    gradient: {
+                        shadeIntensity: 1,
+                        opacityFrom: 0.3,
+                        opacityTo: 0.4,
+                        stops: [0, 90, 100]
+                    }
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                stroke: {
+                    curve: 'smooth',
+                    width: 2
+                },
+                xaxis: {
+                    type: 'datetime',
+                    categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
+                },
+                tooltip: {
+                    x: {
+                        format: 'dd/MM/yy HH:mm'
+                    },
+                }
+            });
+            chart.render();
+        });
+    }
 })();
